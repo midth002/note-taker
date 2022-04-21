@@ -31,7 +31,7 @@ const readAndAppend = (contentObject, file) => {
   });
 };
 
-console.log(notesLength)
+
 
 
 module.exports = { readFromFile, writeToFile, readAndAppend};
