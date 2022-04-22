@@ -1,11 +1,10 @@
 
-const { readFromFile, readAndAppend, writeToFile} = require('../helpers/fsutils');
+const { readFromFile, readAndAppend} = require('../helpers/fsutils');
 const notes = require('express').Router(); 
-const getNotes = require('../helpers/getNotes')
 
 let notesArray; 
 
-
+// Get route on /notes
 notes.get('/', (req,res) => {
     readFromFile('./db/db.json').then((data) => {
     notesArray = JSON.parse(data)
@@ -14,7 +13,7 @@ notes.get('/', (req,res) => {
 })
 
 
-
+// post route to create new note and save it with a note id
 notes.post('/', (req,res) => {
    
     const { title, text } = req.body;
